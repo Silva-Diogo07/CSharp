@@ -1,1 +1,1 @@
-# CSharp
+This is a directory made to track my journey as a C# learner and future game developer
