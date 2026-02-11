@@ -3,11 +3,12 @@ using System;
 class Program
 {
     static Random rnd = new Random();
+
     static void Main()
     {
         int numero = GerarNumero();
         
-        Console.WriteLine("Adivinha o número de 1-50: ");
+        Console.WriteLine("Adivinha o número de 1-50 ");
 
         int tentativas = 3;
         int guess = pedir_palpite();
@@ -23,7 +24,7 @@ class Program
                 Console.WriteLine("Mais Alto!");
             }
 
-            tentativas --;
+            tentativas--;
             Console.WriteLine($"Tentativas restantes: {tentativas}");
 
             guess = pedir_palpite();
@@ -35,16 +36,15 @@ class Program
         }
         else
         {
-            Console.WriteLine($"Acabaram as tentativas o número era: {numero}");
+            Console.WriteLine($"Acabaram as tentativas, o número era: {numero}");
         }
-
     }
 
     static int pedir_palpite()
     {
-        while(true)
+        while (true)
         {
-            Console.WriteLine("Tenta outra vez: ");
+            Console.Write("Palpite: ");
             string? input = Console.ReadLine();
             
             if (int.TryParse(input, out int guess) && guess >= 1 && guess <= 50)
