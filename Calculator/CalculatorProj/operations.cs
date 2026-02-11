@@ -4,10 +4,10 @@
     {
         public static void somar()
         {
-            double soma = 0.0;
+            double r_soma = 0.0;
             double numero;
 
-            Console.WriteLine("Escreve 0 para terminar.");
+            Console.WriteLine("Digita 00 para terminar.");
 
             while (true)
             {
@@ -19,11 +19,82 @@
                 }
 
                 if (numero == 0)
+                {
                     break;
-
-                soma += numero;
+                }
+                r_soma += numero;
             }
 
-            Console.WriteLine($"A soma total é: {soma:F2}");
+            Console.WriteLine($"O resultado da soma é: {r_soma:F2}");
         }
-    }
+
+        public static void subtrair()
+        {
+            float r_sub = 0.0f;
+            float numero;
+            bool primeiro_numero = true;
+
+            Console.WriteLine("Digita '00' para terminar");
+
+            while (true)
+            {
+                Console.Write("Número: ");
+                while (!float.TryParse(Console.ReadLine(), out numero))
+                {
+                    Console.WriteLine("Input inválido.\nInsere um número: ");
+                }
+
+                if (numero == 00)
+                {
+                    break;
+                }
+
+                if (primeiro_numero)
+                {
+                    r_sub = numero;
+                    primeiro_numero = false;
+                }
+                else
+                {
+                    r_sub -= numero;
+                }
+            }
+
+            Console.WriteLine($"O resultado da subtração é: {r_sub:F2}");
+        }
+
+        public static void dividir()
+        {
+            float r_div = 0.0f;
+            bool primeiro_numero = true;
+            float numero;
+
+            Console.WriteLine("Digita '00' para terminar");
+
+            while (true)
+            {
+                Console.Write("Número: ");
+                while (!float.TryParse(Console.ReadLine(), out numero))
+                {
+                    Console.WriteLine("Input inválido.\nInsere um número: ");
+                }
+
+                if (numero == 00)
+                {
+                    break;
+                }
+
+                if (primeiro_numero)
+                {
+                    r_div = numero;
+                    primeiro_numero = false;
+                }
+                else
+                {
+                    r_div /= numero;
+                }
+            }
+
+            Console.WriteLine($"O resultado da divisão é: {r_div:f3}");
+        }
+}

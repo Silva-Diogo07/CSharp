@@ -7,8 +7,8 @@ class Program
         Console.WriteLine("-----Calculator-----\n");
         Console.WriteLine("1. Somar");
         Console.WriteLine("2. Subtrair");
-        Console.WriteLine("3. Multiplicar");
-        Console.WriteLine("4. Dividir");
+        Console.WriteLine("3. Dividir");
+        Console.WriteLine("4. Multiplicar");
         Console.Write("Opção: ");
 
         int option;
@@ -25,13 +25,13 @@ class Program
                 Operations.somar();
                 break;
             case 2:
-                //subtrair();
+                Operations.subtrair();
                 break;
             case 3:
-                //multiplicar();
+                Operations.dividir();
                 break;
             case 4:
-                //dividir();
+                //multiplicar();
                 break;
             default:
                 Console.WriteLine("Opção inválida");
