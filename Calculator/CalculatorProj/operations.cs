@@ -1,13 +1,14 @@
     using System;
+using System.ComponentModel.Design;
 
-    public static class Operations
+public static class Operations
     {
-        public static void somar()
+        public static void Somar()
         {
             double r_soma = 0.0;
             double numero;
 
-            Console.WriteLine("Digita 00 para terminar.");
+            Console.WriteLine("Digita 00 para calcular.");
 
             while (true)
             {
@@ -28,13 +29,13 @@
             Console.WriteLine($"O resultado da soma é: {r_soma:F2}");
         }
 
-        public static void subtrair()
+        public static void Subtrair()
         {
             float r_sub = 0.0f;
             float numero;
             bool primeiro_numero = true;
 
-            Console.WriteLine("Digita '00' para terminar");
+            Console.WriteLine("Digita '00' para calcular");
 
             while (true)
             {
@@ -63,13 +64,13 @@
             Console.WriteLine($"O resultado da subtração é: {r_sub:F2}");
         }
 
-        public static void dividir()
+        public static void Dividir()
         {
             float r_div = 0.0f;
             bool primeiro_numero = true;
             float numero;
 
-            Console.WriteLine("Digita '00' para terminar");
+            Console.WriteLine("Digita '00' para calcular");
 
             while (true)
             {
@@ -96,5 +97,40 @@
             }
 
             Console.WriteLine($"O resultado da divisão é: {r_div:f3}");
+        }
+
+        public static void Multiplicar()
+        {
+            double r_multi = 0.0;
+            bool primeiro_numero = true;
+            double numero;
+
+            Console.WriteLine("Digita '00' para calcular");
+
+            while (true)
+            {
+                Console.Write("Número: ");
+                while (!double.TryParse(Console.ReadLine(), out numero))
+                {
+                    Console.WriteLine("Input inválido.\nInsere um número: ");
+                }
+
+                if (numero == 00)
+                {
+                    break;
+                }
+
+                if (primeiro_numero)
+                {
+                    r_multi = numero;
+                    primeiro_numero = false;
+                }
+                else
+                {
+                    r_multi *= numero;
+                }
+            }
+
+            Console.WriteLine($"O resultado da multiplicação é: {r_multi:F2}");
         }
 }

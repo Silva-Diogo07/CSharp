@@ -9,33 +9,43 @@ class Program
         Console.WriteLine("2. Subtrair");
         Console.WriteLine("3. Dividir");
         Console.WriteLine("4. Multiplicar");
+        Console.WriteLine("5. Sair");
         Console.Write("Opção: ");
 
         int option;
+        bool running = true;
 
         while (!int.TryParse(Console.ReadLine(), out option))
         {
             Console.WriteLine("Opção inválida.");
-            Console.WriteLine("Opção: ");
+            Console.Write("Opção: ");
         }
 
-        switch (option)
+        while (running)
         {
-            case 1: 
-                Operations.somar();
-                break;
-            case 2:
-                Operations.subtrair();
-                break;
-            case 3:
-                Operations.dividir();
-                break;
-            case 4:
-                //multiplicar();
-                break;
-            default:
-                Console.WriteLine("Opção inválida");
-                break;
+            switch (option)
+            {
+                case 1: 
+                    Operations.Somar();
+                    break;
+                case 2:
+                    Operations.Subtrair();
+                    break;
+                case 3:
+                    Operations.Dividir();
+                    break;
+                case 4:
+                    Operations.Multiplicar();
+                    break;
+                case 5:
+                    running = false;
+                    Console.WriteLine("Programa terminado!");
+                    break;
+                default:
+                    running = false;
+                    Console.WriteLine("Opção inválida");
+                    break;
+            }
         }
     }
 }
