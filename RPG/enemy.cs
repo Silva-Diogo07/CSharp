@@ -1,7 +1,7 @@
 public class Enemy : Character
 {
-    public Enemy(string name, int hitpoints, int attack)
-        : base(name, hitpoints, attack)
+    public Enemy(string name, int hp, int atk)
+        : base(name, hp, atk)
     {
     }
 }

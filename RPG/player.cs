@@ -1,7 +1,7 @@
 public class Player : Character
 {
-    public Player(string name, int hitpoints, int attack)
-        : base(name, hitpoints, attack)
+    public Player(string name, int hp, int atk)
+        : base(name, hp, atk)
     {
     }
 }
