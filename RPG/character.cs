@@ -5,7 +5,7 @@ public class Character
     public string Name { get; set; }
     public int HP { get; set; }
     public int Atk { get; set; }
-    public bool isDefending {get; set; } 
+    public bool isDefending { get; set; }
 
     public bool Alive => HP > 0;
 
@@ -16,34 +16,30 @@ public class Character
         Atk = atk;
     }
 
-    public void TakeDamage(int damage)
+    public int GetDamageAfterDefense(int damage)
     {
-        // Se já estiver morto, não faz nada
-        if (!Alive)
-            return;
-        
         if (isDefending)
         {
             damage /= 2;
             Console.WriteLine($"{Name} defendeu! Dano reduzido para {damage}");
             isDefending = false;
         }
+        return damage;
+    }
 
-        // Tira dano
+    public void TakeDamage(int damage)
+    {
+        if (!Alive) return;
+
+        damage = GetDamageAfterDefense(damage);
+
         HP -= damage;
+        if (HP < 0) HP = 0;
 
-        // Garante que HP nunca fica negativo
-        if (HP < 0)
-            HP = 0;
-
-        // Mostra dano recebido
         Console.WriteLine($"{Name} recebeu {damage} de dano!");
 
-        // Se morreu agora, mostra mensagem
         if (!Alive)
-        {
             Console.WriteLine($"{Name} morreu!");
-        }
     }
 
     public void AttackTarget(Character target)
@@ -61,15 +57,15 @@ public class Character
         }
 
         Console.WriteLine($"{Name} atacou {target.Name}!");
-        target.TakeDamage(Atk); // TakeDamage vai reduzir se target estiver defendendo
+        target.TakeDamage(Atk);
     }
 
     public void Defend()
     {
-        if (!Alive)
-            return;
-        
+        if (!Alive) return;
+
         isDefending = true;
         Console.WriteLine($"{Name} defendeu o ataque!");
     }
 }
+
