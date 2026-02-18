@@ -1,0 +1,15 @@
+/home/diogo/repos/CSharp/Contacts/bin/Debug/net10.0/Contacts
+/home/diogo/repos/CSharp/Contacts/bin/Debug/net10.0/Contacts.deps.json
+/home/diogo/repos/CSharp/Contacts/bin/Debug/net10.0/Contacts.runtimeconfig.json
+/home/diogo/repos/CSharp/Contacts/bin/Debug/net10.0/Contacts.dll
+/home/diogo/repos/CSharp/Contacts/bin/Debug/net10.0/Contacts.pdb
+/home/diogo/repos/CSharp/Contacts/obj/Debug/net10.0/Contacts.GeneratedMSBuildEditorConfig.editorconfig
+/home/diogo/repos/CSharp/Contacts/obj/Debug/net10.0/Contacts.AssemblyInfoInputs.cache
+/home/diogo/repos/CSharp/Contacts/obj/Debug/net10.0/Contacts.AssemblyInfo.cs
+/home/diogo/repos/CSharp/Contacts/obj/Debug/net10.0/Contacts.csproj.CoreCompileInputs.cache
+/home/diogo/repos/CSharp/Contacts/obj/Debug/net10.0/Contacts.sourcelink.json
+/home/diogo/repos/CSharp/Contacts/obj/Debug/net10.0/Contacts.dll
+/home/diogo/repos/CSharp/Contacts/obj/Debug/net10.0/refint/Contacts.dll
+/home/diogo/repos/CSharp/Contacts/obj/Debug/net10.0/Contacts.pdb
+/home/diogo/repos/CSharp/Contacts/obj/Debug/net10.0/Contacts.genruntimeconfig.cache
+/home/diogo/repos/CSharp/Contacts/obj/Debug/net10.0/ref/Contacts.dll
