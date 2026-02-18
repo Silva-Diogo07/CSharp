@@ -10,10 +10,11 @@
             Console.WriteLine("2 - Procurar contacto");
             Console.WriteLine("3 - Listar contactos");
             Console.WriteLine("4 - Remover contacto");
+            Console.WriteLine("5 - Editar contacto");
             Console.WriteLine("0 - Sair");
 
             int escolha;
-            while (!int.TryParse(Console.ReadLine(), out escolha) || escolha < 0 || escolha > 4)
+            while (!int.TryParse(Console.ReadLine(), out escolha) || escolha < 0 || escolha > 5)
             {
                 Console.WriteLine("Escolha inválida.");
             }
@@ -34,6 +35,9 @@
                     break;
                 case 4:
                     gerir.RemoverContacto();
+                    break;
+                case 5:
+                    gerir.EditarContacto();
                     break;
             }
         }
