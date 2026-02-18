@@ -69,3 +69,34 @@ public class Character
     }
 }
 
+/*
+Resumo do Character.cs:
+
+- Classe Character: define qualquer personagem do jogo (Player ou Enemy).
+- Construtor Character(string name, int hp, int atk):
+    Cria um personagem com nome, pontos de vida (HP) e ataque (Atk).
+
+- Propriedades:
+    Name        -> nome do personagem.
+    HP          -> pontos de vida.
+    Atk         -> valor do ataque.
+    isDefending -> indica se o personagem está defendendo.
+    Alive       -> retorna true se HP > 0, false se morreu.
+
+- Métodos:
+    GetDamageAfterDefense(int damage) 
+        -> reduz o dano se o personagem estiver defendendo; usado dentro de TakeDamage.
+
+    TakeDamage(int damage) 
+        -> aplica dano no personagem, calcula defesa, reduz HP e mostra mensagens de dano e morte.
+
+    AttackTarget(Character target)
+        -> faz o personagem atacar outro Character.
+        -> verifica se atacante ou alvo estão vivos antes.
+
+    Defend()
+        -> ativa a defesa do personagem para reduzir dano no próximo ataque.
+
+- Uso:
+    Serve como classe base para Player e Enemy, que herdam todas essas funcionalidades.
+*/

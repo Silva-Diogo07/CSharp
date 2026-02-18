@@ -110,3 +110,46 @@ class Program
             Console.WriteLine($"O vencedor foi {enemy.Name}!");
     }
 }
+
+/*
+Resumo do Program.cs:
+
+- Arquivo que controla a execução do jogo (Main).
+- Random random -> usado para decidir ordem de turnos e ações do inimigo.
+
+- Main()
+    -> ponto de entrada do jogo.
+    -> cria Player e Enemy.
+    -> chama RodarBatalha() para iniciar a luta.
+
+- CriarPlayer()
+    -> lê nome do usuário via console.
+    -> retorna um objeto Player com HP e Ataque definidos.
+
+- CriarEnemy()
+    -> retorna um objeto Enemy (ex: Goblin) com HP e Ataque definidos.
+
+- RodarBatalha(Player player, Enemy enemy)
+    -> loop principal do jogo enquanto ambos estiverem vivos.
+    -> decide aleatoriamente quem começa.
+    -> chama TurnoPlayer() e TurnoEnemy() a cada turno.
+    -> mostra status e vencedor no final.
+
+- LerEscolhaPlayer()
+    -> lê do console a escolha do jogador (1 = atacar, 2 = defender).
+
+- TurnoPlayer(Player player, Enemy enemy, int escolha)
+    -> executa a ação do jogador de acordo com a escolha (atacar ou defender).
+
+- TurnoEnemy(Enemy enemy, Player player)
+    -> decide aleatoriamente a ação do inimigo (atacar ou defender) e executa.
+
+- MostrarStatus(Player player, Enemy enemy)
+    -> imprime HP atual de ambos.
+
+- MostrarVencedor(Player player, Enemy enemy)
+    -> verifica quem está vivo e mostra o vencedor.
+
+- Uso:
+    Organiza a lógica de batalha, controle de turnos e interação com o jogador.
+*/
