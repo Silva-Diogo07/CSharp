@@ -48,12 +48,17 @@ public class Gerir
             return;
         }
 
+        // Ordenar nome por ordem ascendente
+        var contactosOrdenados = contactos.OrderBy(c => c.Nome);
+        
         int i = 1;
-        foreach (Person contacto in contactos)
+
+        foreach (Person contacto in contactosOrdenados)
         {
-            Console.WriteLine($"{i}. Nome: {contacto.Nome} | Número: {contacto.Numero}");
+            Console.WriteLine($"{i} Nome: {contacto.Nome} | Número: {contacto.Numero} ");
             i++;
         }
+        
         Console.WriteLine();
     }
 
