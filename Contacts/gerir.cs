@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text.Json;
 using System.IO;
 
-
 public class Gerir
 {
     private List<Person> contactos = new List<Person>();
@@ -32,13 +31,22 @@ public class Gerir
         Console.Write("Nome: ");
         string nomeProcurado = Console.ReadLine() ?? "";
 
-        var contacto = contactos.FirstOrDefault(c => 
-            c.Nome.Equals(nomeProcurado, StringComparison.OrdinalIgnoreCase));
+        var resultados = contactos.Where(c =>
+            c.Nome.Contains(nomeProcurado, StringComparison.OrdinalIgnoreCase));
 
-        if (contacto != null)
-            Console.WriteLine($"Nome: {contacto.Nome} | Número: {contacto.Numero}\n");
+        if (resultados.Any())
+        {
+            foreach (var c in resultados)
+            {
+                Console.WriteLine($"Nome: {c.Nome} | Número: {c.Numero}");
+            }
+        }
         else
-            Console.WriteLine("Contacto não encontrado.\n");
+        {
+            Console.WriteLine("Contacto não encontrado.");
+        }
+
+        Console.WriteLine();
     }
 
     public void ListarContactos()
@@ -51,17 +59,16 @@ public class Gerir
             return;
         }
 
-        // Ordenar nome por ordem ascendente
         var contactosOrdenados = contactos.OrderBy(c => c.Nome);
-        
+
         int i = 1;
 
-        foreach (Person contacto in contactosOrdenados)
+        foreach (var contacto in contactosOrdenados)
         {
-            Console.WriteLine($"{i} Nome: {contacto.Nome} | Número: {contacto.Numero} ");
+            Console.WriteLine($"{i}. Nome: {contacto.Nome} | Número: {contacto.Numero}");
             i++;
         }
-        
+
         Console.WriteLine();
     }
 
@@ -69,10 +76,10 @@ public class Gerir
     {
         Console.Clear();
         Console.Write("Digite o nome do contacto que deseja apagar: ");
-        string nome_apagar = Console.ReadLine() ?? "";
+        string nomeApagar = Console.ReadLine() ?? "";
 
         int removidos = contactos.RemoveAll(c =>
-            c.Nome.Equals(nome_apagar, StringComparison.OrdinalIgnoreCase));
+            c.Nome.Equals(nomeApagar, StringComparison.OrdinalIgnoreCase));
 
         if (removidos > 0)
             Console.WriteLine("Contacto(s) apagado(s) com sucesso!\n");
@@ -93,10 +100,10 @@ public class Gerir
         {
             Console.WriteLine($"Nome atual: {contacto.Nome} | Número atual: {contacto.Numero}");
 
-            Console.Write("Novo nome (pressione Enter para manter o atual): ");
+            Console.Write("Novo nome (Enter para manter): ");
             string novoNome = Console.ReadLine() ?? "";
 
-            Console.Write("Novo número (pressione Enter para manter o atual): ");
+            Console.Write("Novo número (Enter para manter): ");
             string inputNumero = Console.ReadLine() ?? "";
 
             if (!string.IsNullOrWhiteSpace(novoNome))
@@ -115,7 +122,12 @@ public class Gerir
 
     public void SalvarContactos()
     {
-        string jsonString = JsonSerializer.Serialize(contactos);
+        var options = new JsonSerializerOptions
+        {
+            WriteIndented = true
+        };
+
+        string jsonString = JsonSerializer.Serialize(contactos, options);
         File.WriteAllText("contactos.json", jsonString);
     }
 
@@ -124,9 +136,20 @@ public class Gerir
         if (File.Exists("contactos.json"))
         {
             string jsonString = File.ReadAllText("contactos.json");
-            contactos = JsonSerializer.Deserialize<List<Person>>(jsonString);
+
+            if (!string.IsNullOrWhiteSpace(jsonString))
+            {
+                contactos = JsonSerializer.Deserialize<List<Person>>(jsonString)
+                            ?? new List<Person>();
+            }
+            else
+            {
+                contactos = new List<Person>();
+            }
         }
         else
+        {
             contactos = new List<Person>();
+        }
     }
 }
