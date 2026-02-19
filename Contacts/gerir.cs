@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
+using System.IO;
+
 
 public class Gerir
 {
@@ -108,5 +111,22 @@ public class Gerir
         {
             Console.WriteLine("Contacto não encontrado.\n");
         }
+    }
+
+    public void SalvarContactos()
+    {
+        string jsonString = JsonSerializer.Serialize(contactos);
+        File.WriteAllText("contactos.json", jsonString);
+    }
+
+    public void CarregarContactos()
+    {
+        if (File.Exists("contactos.json"))
+        {
+            string jsonString = File.ReadAllText("contactos.json");
+            contactos = JsonSerializer.Deserialize<List<Person>>(jsonString);
+        }
+        else
+            contactos = new List<Person>();
     }
 }

@@ -3,6 +3,7 @@
     static void Main()
     {
         Gerir gerir = new Gerir();
+        gerir.CarregarContactos();
 
         while (true)
         {
@@ -26,6 +27,7 @@
             {
                 case 1:
                     gerir.AdicionarContacto();
+                    gerir.SalvarContactos();
                     break;
                 case 2:
                     gerir.ProcurarContacto();
@@ -35,9 +37,11 @@
                     break;
                 case 4:
                     gerir.RemoverContacto();
+                    gerir.SalvarContactos();
                     break;
                 case 5:
                     gerir.EditarContacto();
+                    gerir.SalvarContactos();
                     break;
             }
         }
